@@ -2,10 +2,10 @@
 
 import { useState } from "react"
 
-import { EditorNavbar } from "@/components/editor/editor-navbar"
-import { ProjectSidebar } from "@/components/editor/project-sidebar"
+import { EditorNavbar } from "./editor-navbar"
+import { ProjectSidebar } from "./project-sidebar"
 
-export default function Home() {
+export function EditorChrome({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
@@ -18,7 +18,7 @@ export default function Home() {
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
       />
-      <main className="h-full pt-12" />
+      <main className="h-full pt-12">{children}</main>
     </div>
   )
 }
